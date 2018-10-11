@@ -33,7 +33,7 @@
 #include <unistd.h>
 
 #define BACKLOG 1
-#define PORT "16625"
+#define PORT "2323"
 
 static void dup2_or_die(int oldfd, int newfd) {
     if (dup2(oldfd, newfd) == -1) {
