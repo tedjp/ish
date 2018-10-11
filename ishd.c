@@ -67,7 +67,7 @@ static void child(int s) {
 }
 
 int main(void) {
-    int s = socket(AF_INET6, SOCK_STREAM, 0/* | SOCK_CLOEXEC*/);
+    int s = socket(AF_INET6, SOCK_STREAM | SOCK_CLOEXEC, 0);
     
     if (s == -1) {
         perror("socket");
