@@ -24,6 +24,8 @@
  * SOFTWARE.
  */
 
+#define _GNU_SOURCE 1
+
 #include <netdb.h>
 #include <signal.h>
 #include <stdio.h>
@@ -111,7 +113,7 @@ int main(void) {
     }
 
     int client = -1;
-    while ((client = accept(s, NULL, NULL)) != -1) {
+    while ((client = accept4(s, NULL, NULL, SOCK_CLOEXEC)) != -1) {
         pid_t pid = fork();
 
         if (pid == -1) {
