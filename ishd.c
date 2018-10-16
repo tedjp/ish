@@ -70,7 +70,7 @@ static void child(int s) {
 
 int main(void) {
     int s = socket(AF_INET6, SOCK_STREAM | SOCK_CLOEXEC, 0);
-    
+
     if (s == -1) {
         perror("socket");
         return 1;
@@ -120,7 +120,7 @@ int main(void) {
             perror("fork");
             break;
         }
-        
+
         if (pid == 0) {
             close(s);
             child(client);
@@ -131,6 +131,8 @@ int main(void) {
         perror("close");
         return 1;
     }
+
+    freeaddrinfo(addrs);
 
     return 1;
 }
