@@ -101,6 +101,8 @@ int main(void) {
         return 1;
     }
 
+    freeaddrinfo(addrs);
+
     if (listen(s, BACKLOG) == -1) {
         perror("listen");
         return 1;
@@ -131,8 +133,6 @@ int main(void) {
         perror("close");
         return 1;
     }
-
-    freeaddrinfo(addrs);
 
     return 1;
 }
