@@ -102,6 +102,7 @@ int main(void) {
     }
 
     freeaddrinfo(addrs);
+    addrs = NULL;
 
     if (listen(s, BACKLOG) == -1) {
         perror("listen");
